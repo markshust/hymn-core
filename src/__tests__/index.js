@@ -1,8 +1,8 @@
 import {expect} from 'chai';
 import {createApp} from '../';
 import * as indexExports from '../';
-import * as simpleSimpleDiExports from 'react-simple-di';
-import * as reactKomposerExports from 'react-komposer';
+import * as diExports from 'hymn-di';
+import * as composerExports from 'hymn-composer';
 const {describe, it} = global;
 
 describe('Module', () => {
@@ -14,18 +14,26 @@ describe('Module', () => {
     });
   });
 
-  it('should have useDeps from react-simple-di', () => {
-    expect(indexExports.useDeps).to.be.equal(simpleSimpleDiExports.useDeps);
+  it('should have useDeps from hymn-di', () => {
+    expect(indexExports.useDeps).to.be.equal(diExports.useDeps);
   });
 
-  it('should have all functions from react-komposer', () => {
+  it('should have all functions from hymn-composer', () => {
     const fnNames = [
-      'compose', 'composeWithPromise', 'composeWithTracker',
-      'composeWithObservable', 'composeAll', 'disable'
+      'compose',
+      'composeWithPromise',
+      'composeWithTracker',
+      'composeWithObservable',
+      'composeWithMobx',
+      'composeAll',
+      'disable',
+      'setDefaultErrorComponent',
+      'setDefaultLoadingComponent',
+      'setStubbingMode',
     ];
 
     fnNames.forEach(fnName => {
-      const reactKomposerFn = reactKomposerExports[fnName];
+      const reactKomposerFn = composerExports[fnName];
       const indexFN = indexExports[fnName];
       expect(reactKomposerFn).to.be.equal(indexFN);
     });

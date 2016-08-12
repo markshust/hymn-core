@@ -1,6 +1,4 @@
-import {
-  injectDeps
-} from 'react-simple-di';
+import { injectDeps } from 'hymn-di';
 
 export default class App {
   constructor(context) {

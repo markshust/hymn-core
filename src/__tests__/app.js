@@ -145,7 +145,6 @@ describe('App', () => {
       expect(calledRoutes).to.deep.equal([ 1, 2 ]);
     });
 
-
     it('should mark as initialized', () => {
       const app = new App({});
       app.init();
