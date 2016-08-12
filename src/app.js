@@ -19,9 +19,10 @@ export default class App {
         const actionMap = _actions[key];
         const newActionMap = {};
         for (let actionName in actionMap) {
-          if (actionMap.hasOwnProperty(actionName)) {
-            newActionMap[actionName] =
-              actionMap[actionName].bind(null, this.context);
+          if (actionMap.hasOwnProperty(actionName)
+            && typeof actionMap[actionName] === 'function'
+          ) {
+            newActionMap[actionName] = actionMap[actionName].bind(null, this.context);
           }
         }
         actions[key] = newActionMap;
