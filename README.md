@@ -13,6 +13,8 @@ The base of this project stems from <a href="https://github.com/mantrajs/mantra-
 
 ### Differences from mantra-core
 
+* Ability to module-namespace actions
+    - See https://github.com/kadirahq/mantra/issues/199 for details
 * Updates from latest hymn-composer and hymn-di
 * Future updates planned
 
